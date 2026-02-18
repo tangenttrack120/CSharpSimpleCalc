@@ -21,6 +21,7 @@ namespace Calculator
 
         static double Divide(double x, double y)
         {
+            if (y == 0) return 0; // Or handle as an error
             return x / y;
         }
 
@@ -36,12 +37,31 @@ namespace Calculator
             String choice = Console.ReadLine().ToUpper();
             
             Console.Write("Your first number is: ");
-            String firstNumber = Console.ReadLine();
-            x = Convert.ToDouble(firstNumber);
+            if (!double.TryParse(Console.ReadLine(), out x)) 
+            {
+                Console.WriteLine("That's not a valid number!");
+                return; // loop later
+            }
             Console.Write("Your second number is: ");
-            String secondNumber = Console.ReadLine();
-            y = Convert.ToDouble(secondNumber);
+            if (!double.TryParse(Console.ReadLine(), out y)) 
+            {
+                Console.WriteLine("That's not a valid number!");
+                return; // loop later
+            }
 
+
+            switch (choice)
+            {
+                case "A": result = Add(x, y); break;
+                case "S": result = Subtract(x, y); break;
+                case "M": result = Multiply(x, y); break;
+                case "D": result = Divide(x, y); break;
+                default:
+                    Console.WriteLine("Invalid operation choice");
+                    return; // Will be changed by loop for another input later
+            }
+
+            /*
             if (choice == "A")
             {
                 result = Add(x,y);
@@ -60,6 +80,7 @@ namespace Calculator
                 Console.WriteLine("Invalid operation choice");
                 result = 0;
             }
+            */
 
             Console.WriteLine("The result of the operation is: " + result);
         }
