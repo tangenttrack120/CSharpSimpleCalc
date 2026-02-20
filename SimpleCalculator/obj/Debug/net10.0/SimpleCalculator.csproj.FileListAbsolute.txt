@@ -12,3 +12,4 @@
 /Users/user/RiderProjects/SimpleCalculator/SimpleCalculator/obj/Debug/net10.0/SimpleCalculator.pdb
 /Users/user/RiderProjects/SimpleCalculator/SimpleCalculator/obj/Debug/net10.0/SimpleCalculator.genruntimeconfig.cache
 /Users/user/RiderProjects/SimpleCalculator/SimpleCalculator/obj/Debug/net10.0/ref/SimpleCalculator.dll
+/Users/user/RiderProjects/SimpleCalculator/SimpleCalculator/obj/Debug/net10.0/SimpleCalculator.sourcelink.json

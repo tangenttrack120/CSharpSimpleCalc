@@ -28,26 +28,47 @@ namespace Calculator
         static void Main(string[] args)
         {
             double x, y, result;
+            String choice;
             
             Console.WriteLine("This is a simple calculator");
             Console.WriteLine("You can do addition, subtraction, multiplication and division");
             Console.WriteLine(
                 "Type A for \"Addition\", S for \"Substraction\", M for \"Multiplication\", and D for \"Division\"");
             Console.Write("What operation would you like to do?\n");
-            String choice = Console.ReadLine().ToUpper();
+            while (true)
+            {
+                // Read input and convert to Uppercase to handle 'a' or 'A'
+                choice = Console.ReadLine().ToUpper();
+
+                // Check if the input is one of the valid options
+                if (choice == "A" || choice == "S" || choice == "M" || choice == "D")
+                {
+                    break; // Input is valid, exit the loop
+                }
+
+                Console.Write("Invalid choice. Please enter A, S, M, or D: ");
+            }
+            
             
             Console.Write("Your first number is: ");
-            if (!double.TryParse(Console.ReadLine(), out x)) 
+            while (!double.TryParse(Console.ReadLine(), out x))
             {
-                Console.WriteLine("That's not a valid number!");
-                return; // loop later
+                Console.Write("Invalid input. Please enter a valid number: ");
             }
+
             Console.Write("Your second number is: ");
+            while (!double.TryParse(Console.ReadLine(), out y))
+            {
+                Console.Write("Invalid input. Please enter a valid number: ");
+            }
+
+            /* 
             if (!double.TryParse(Console.ReadLine(), out y)) 
             {
                 Console.WriteLine("That's not a valid number!");
                 return; // loop later
             }
+            */
 
 
             switch (choice)
